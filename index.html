@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="si">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MCQ Quiz</title>
+    <title>MCQ ප්‍රශ්න පත්‍රය</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,40 +27,39 @@
 </head>
 <body>
 
-<h2>MCQ Quiz</h2>
+<h2>MCQ ප්‍රශ්න පත්‍රය</h2>
 
 <div class="question">
-    <div>1. ශ්‍රී ලංකාවේ රාජධානිය කුමක්ද?</div>
+    <div>1. ශ්‍රී ලංකාවේ අගනුවර කුමක්ද?</div>
     <input type="radio" name="q1" value="a"> කෝට්ටේ <br>
     <input type="radio" name="q1" value="b"> අනුරාධපුරය <br>
-    <input type="radio" name="q1" value="c"> පොළොන්නරුව <br>
- <input type="radio" name="q1" value="c"> මූලාශ්‍ර ගවේෂණය <br>
+    <input type="radio" name="q1" value="c"> කොළඹ <br>
 </div>
 
 <div class="question">
-    <div>2. සමාජ විද්‍යාවෙහි පදනම් වාර්තාව කුමක්ද?</div>
-    <input type="radio" name="q2" value="a"> විද්‍යාත්මක පරික්ෂණය <br>
-    <input type="radio" name="q2" value="b"> මූලාශ්‍ර ගවේෂණය <br>
-    <input type="radio" name="q2" value="c"> මූලික සෞඛ්‍ය සේවා <br>
+    <div>2. ශ්‍රී ලංකාවේ උසස්ම කඳුවැටිය කුමක්ද?</div>
+    <input type="radio" name="q2" value="a"> අඩම්ස් ශිඛරය <br>
+    <input type="radio" name="q2" value="b"> නක්ලස් කඳුවැටිය <br>
+    <input type="radio" name="q2" value="c"> කඳුලූමි කඳුවැටිය <br>
 </div>
 
 <div class="question">
-    <div>3. ශ්‍රී ලාංකීය මුස්ලිම් පන්තියක් ලෙස කවර එකක් හැඳින්වේද?</div>
-    <input type="radio" name="q3" value="a"> සින්හල <br>
-    <input type="radio" name="q3" value="b"> මල්ලික්කාර් <br>
-    <input type="radio" name="q3" value="c"> වාහාලුකාර <br>
+    <div>3. ශ්‍රී ලංකාවේ සීගිරිය වැඳපුදා ගැනීමේ කථාව අයත් කුමන රාජු සමයටද?</div>
+    <input type="radio" name="q3" value="a"> කාශ්‍යප රජු <br>
+    <input type="radio" name="q3" value="b"> පරණසී රජු <br>
+    <input type="radio" name="q3" value="c"> ඕනෑම රජුක් <br>
 </div>
 
-<button onclick="checkAnswers()">Submit</button>
+<button onclick="checkAnswers()">අදාල පිළිතුරු ලබාගන්න</button>
 
 <div id="result"></div>
 
 <script>
     function checkAnswers() {
         const answers = {
-            q1: "b",
+            q1: "c",
             q2: "a",
-            q3: "b"
+            q3: "a"
         };
 
         let score = 0;
@@ -75,7 +74,7 @@
             }
         }
 
-        document.getElementById('result').innerHTML = "You scored " + score + " out of " + total;
+        document.getElementById('result').innerHTML = "ඔබ ලැබූ ලකුණු සංඛ්‍යාව " + score + " යි.";
     }
 </script>
 
