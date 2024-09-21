@@ -8,15 +8,13 @@
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
-        }
-        h2 {
-            text-align: center;
+            line-height: 1.6;
         }
         .question {
             margin-bottom: 15px;
         }
-        .question div {
-            margin-bottom: 5px;
+        strong {
+            font-weight: bold;
         }
         #result {
             margin-top: 20px;
@@ -29,52 +27,53 @@
 
 <h2>MCQ ප්‍රශ්න පත්‍රය</h2>
 
-<div class="question">
-    <div>1. ශ්‍රී ලංකාවේ අගනුවර කුමක්ද?</div>
-    <input type="radio" name="q1" value="a"> කෝට්ටේ <br>
-    <input type="radio" name="q1" value="b"> අනුරාධපුරය <br>
-    <input type="radio" name="q1" value="c"> කොළඹ <br>
-</div>
+<form id="quizForm">
+    <div class="question">
+        <div>1. එයා ඉතින් හැමදාම කළේ <strong>අනුන්ගේ පානෙන් එළිය බැලීමනෙ</strong></div>
+        <ol type="1">
+            <li><input type="radio" name="q1" value="1"> අනුන්ගේ පිහිටෙන් තමාගේ කටයුතු කර ගැනීම</li>
+            <li><input type="radio" name="q1" value="2"> අපතේ යන දෙයින් ප්‍රයෝජනයක් ගැනීම</li>
+            <li><input type="radio" name="q1" value="3"> අනුන්ට උදව් කර එයින් තමනුත් ප්‍රයෝජන ලැබීම</li>
+            <li><input type="radio" name="q1" value="4"> අනුන්ට පහන් දල්වා අලෝකය ලබා දීම</li>
+        </ol>
+    </div>
 
-<div class="question">
-    <div>2. ශ්‍රී ලංකාවේ උසස්ම කඳුවැටිය කුමක්ද?</div>
-    <input type="radio" name="q2" value="a"> අඩම්ස් ශිඛරය <br>
-    <input type="radio" name="q2" value="b"> නක්ලස් කඳුවැටිය <br>
-    <input type="radio" name="q2" value="c"> කඳුලූමි කඳුවැටිය <br>
-</div>
+    <div class="question">
+        <div>2. අන්තිමේ දී මෙහෙම  <strong>අබග්ගයක්</strong> වෙයි කියල මම කලින්ම හිතුව</div>
+        <ol type="1">
+            <li><input type="radio" name="q2" value="1"> අමනාපයක්</li>
+            <li><input type="radio" name="q2" value="2"> කළකිරීමක්</li>
+            <li><input type="radio" name="q2" value="3"> අවාසනාවන්ත සිදුවීමක්</li>
+            <li><input type="radio" name="q2" value="4"> ලැජ්ජාවක්</li>
+        </ol>
+    </div>
 
-<div class="question">
-    <div>3. ශ්‍රී ලංකාවේ සීගිරිය වැඳපුදා ගැනීමේ කථාව අයත් කුමන රාජු සමයටද?</div>
-    <input type="radio" name="q3" value="a"> කාශ්‍යප රජු <br>
-    <input type="radio" name="q3" value="b"> පරණසී රජු <br>
-    <input type="radio" name="q3" value="c"> ඕනෑම රජුක් <br>
-</div>
+    <!-- Add more questions here -->
 
-<button onclick="checkAnswers()">අදාල පිළිතුරු ලබාගන්න</button>
+    <button type="button" onclick="checkAnswers()">පිළිතුරු පරික්ෂා කරන්න</button>
+</form>
 
 <div id="result"></div>
 
 <script>
     function checkAnswers() {
         const answers = {
-            q1: "c",
-            q2: "a",
-            q3: "a"
+            q1: "1",
+            q2: "3",
+            // Add more answers here
         };
 
         let score = 0;
-        let total = 3;
+        const totalQuestions = Object.keys(answers).length;
 
-        for (let i = 1; i <= total; i++) {
-            const radios = document.getElementsByName('q' + i);
-            for (const radio of radios) {
-                if (radio.checked && radio.value === answers['q' + i]) {
-                    score++;
-                }
+        for (const question in answers) {
+            const selected = document.querySelector(`input[name="${question}"]:checked`);
+            if (selected && selected.value === answers[question]) {
+                score++;
             }
         }
 
-        document.getElementById('result').innerHTML = "ඔබ ලැබූ ලකුණු සංඛ්‍යාව " + score + " යි.";
+        document.getElementById('result').innerText = `ඔබ ලගාගත් ලකුණු සංඛ්‍යාව: ${score} / ${totalQuestions}`;
     }
 </script>
 
